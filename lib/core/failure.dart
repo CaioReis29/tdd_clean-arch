@@ -11,3 +11,8 @@ class NoConnection extends Failure{
   @override
   String get msg => "Oops! You not have connection!";
 }
+
+class ApiFailure extends Failure {
+  @override
+  String get msg => "Sorry! It waas not possible to acess the Server. Try again later.";
+}
