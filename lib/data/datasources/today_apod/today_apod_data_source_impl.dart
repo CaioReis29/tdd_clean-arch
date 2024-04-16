@@ -1,6 +1,3 @@
-
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:tdd_clean_arch/core/failure.dart';
 import 'package:tdd_clean_arch/data/datasources/today_apod/today_apod_data_source.dart';
@@ -23,7 +20,7 @@ class TodayApodDataSourceImpl implements TodayApodDataSource{
     }
 
     if(response.statusCode == 200) {
-      final json = jsonDecode(response.data);
+      Map<String, dynamic> json = response.data;
       return ApodModel.fromJson(json);
     } else {
       throw ApiFailure();
