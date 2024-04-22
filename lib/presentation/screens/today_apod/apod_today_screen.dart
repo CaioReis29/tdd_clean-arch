@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tdd_clean_arch/container_injections.dart';
 import 'package:tdd_clean_arch/presentation/blocs/today_apod/today_apod_bloc.dart';
+import 'package:tdd_clean_arch/presentation/screens/core/apod_view_page.dart';
 
 class ApodTodayScreen extends StatefulWidget {
 
@@ -35,12 +36,7 @@ class _ApodTodayScreenState extends State<ApodTodayScreen> {
           }
           if(state is SucessTodayApodState) {
             final apod = state.apod;
-            body = Column(
-              children: [
-                Text(apod.title ?? ""),
-                Text(apod.explanation ?? ""),
-              ],
-            );
+            return ApodViewPage(apod: apod);
           }
           return Scaffold(
             body: body ?? Container(),
